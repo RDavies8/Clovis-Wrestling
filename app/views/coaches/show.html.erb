@@ -1,0 +1,39 @@
+<% content_for :title do %>
+    <%= @coach.name %>
+<% end %>
+
+<div class = "container">
+    <div class = "row row-offcanvas row-offcanvas-right">
+        <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-info btn-xs" data-toggle="offcanvas">Twitter</button>
+        </p>
+        <div class = "col-xs-12 col-sm-9">
+            <div class="row">
+                <div class = "col-sm-12">
+                    <div class = "panel panel-default">
+                        <div class = "panel-body">
+                            <div class = "page-header">
+                                <h3 id="article-title">
+                                	<%= @coach.name %>
+                                	<small><%= @coach.position %></small>
+                                </h3>
+                            </div>
+
+                            <!--Check featuredImg/articleImg-->
+                            <%= image_tag @coach.image_id, class: 'featuredImg img-article' %>
+
+                            <p id = "main-text">
+                            	<%= @coach.info %>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%= render 'shared/related_sidebar', items: @coaches, title: 'name', subtitle: 'position',
+                                             controller_path: 'coach', path: 'user_id' %>
+
+    </div>
+</div>

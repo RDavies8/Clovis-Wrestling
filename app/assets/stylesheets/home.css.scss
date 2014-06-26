@@ -1,0 +1,14 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body {
+	height: 100%;	
+}
+
+.page-wrapper {
+	background-image: url(image-path("witewall_3_@2X.png"));
+	box-shadow: -2px 2px 2px #cccccc, 2px 2px 2px #cccccc;
+	padding: 0 0 50px 0 !important;
+	min-height: 100%;
+};

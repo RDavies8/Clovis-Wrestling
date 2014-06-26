@@ -1,0 +1,18 @@
+<% content_for :title do %>
+    <%=  %>
+<% end %>
+
+<div class = "container">
+
+    <div class="list-group">
+        <h1 class="list-group-item text-center">Blog Posts</h1>
+        <% @blogs.each do |blog| %>
+            <%= link_to blog_path(blog.id), class: 'list-group-item blog-item' do %>
+                <%= image_tag blog.image_id, class: 'thumbnail sm' %>
+                <h3 class="blog-index-title"><%= blog.title %> <small><%= blog.author %></small></h3>
+                <p><%= blog.preview %></p>
+            <% end %>
+        <% end %> 
+    </div>
+
+</div>

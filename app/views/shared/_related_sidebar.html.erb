@@ -1,0 +1,10 @@
+<div class="col-xs-6 col-sm-3 blog-sidebar hidden-xs">
+  <div class="list-group">
+    <% items.each do |item| %>
+        <%= link_to send("#{controller_path}_path", item.send(path)), class: "list-group-item blog-item #{current_blog?(item.id)}" do %>
+            <%= image_tag item.image_id, class: 'center thumbnail sm' %>
+            <h5 class="blog-index-title text-center"><%= item.send(title) %> <br /><small><%= item.send(subtitle) %></small></h5>
+        <% end %>
+    <% end %>
+  </div>
+</div>

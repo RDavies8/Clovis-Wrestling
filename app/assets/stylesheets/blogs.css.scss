@@ -1,0 +1,33 @@
+// Place all the styles related to the blogs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+img.img-blog {
+	max-width: 65%;
+	padding: 0px;
+	margin-right: 20px;
+	margin-bottom: 5px;
+	border-radius: 8px;
+}
+
+img.sm {
+	max-height: 100px;
+	max-width: 100px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 0px;
+}
+
+.blog-index-title {
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+.blog-sidebar {
+	padding-left: 0 !important;
+}
+
+.blog-item {
+	min-height: 120px !important;
+}

@@ -1,0 +1,35 @@
+<% content_for :title do %>
+    <%= @blog.title %>
+<% end %>
+
+<div class = "container">
+    <div class = "row">
+        <div class = "col-xs-12 col-sm-9">
+            <div class="row">
+                <div class = "col-sm-12">
+                    <div class = "panel panel-default">
+                        <div class = "panel-body">
+                            <div class = "page-header">
+                                <h3 id="article-title">
+                                	<%= @blog.title %>
+                                	<small><%= @blog.author %></small>
+                                </h3>
+                            </div>
+
+                            <!--Check featuredImg/articleImg-->
+                            <%= image_tag @blog.image_id, class: "img-article img-responsive img-blog" %>
+
+                            <p id = "main-text">
+                            	<%= @blog.article %>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%= render 'shared/related_sidebar', :items => @blogs, title: 'title', subtitle: 'author', controller_path: 'blog', path: 'id' %>
+
+    </div>
+</div>

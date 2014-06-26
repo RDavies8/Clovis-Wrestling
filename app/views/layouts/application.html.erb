@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+  	<%= yield :title %>
+  </title>
+  <%= stylesheet_link_tag    'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+
+</head>
+<body>
+    <div class="page-wrapper container">
+        <header class="container">
+            <table class="menu-bar">
+                <tr class="menu-row">
+                    <th>
+                        <h1 class="menu-title-left">Clovis</h1>
+                        <table class="menu-bar">
+                            <tr class="menu-row">
+                                <td class=<%= is_active "home" %>><%=link_to "Home", :controller => :home %></td>
+                                <td class=<%= is_active "coaches" %>><%= link_to "Staff",  coaches_path %></td>
+                                <td class=<%= is_active "wrestlers" %>><%= link_to "Lineup", wrestlers_path %></td>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class="img-container">
+                        <%= link_to home_index_path do %>
+                            <%= image_tag "clovisC.png", class: "logo" %>
+                        <% end %>
+                    </th>
+                    <th>
+                        <h1 class="menu-title-right">Wrestling</h1>
+                        <table class="menu-bar">
+                            <tr class="menu-row">
+                                <td class=<%= is_active "blogs" %>><%= link_to "Blog", blogs_path %></td>
+                                <td><a href="http://cloviswrestling.com/live.htm">Stream</a></td>
+                                <td><a href = "#schedule" data-toggle="modal">Schedule</a></td>
+                            </tr>
+                        </table>
+                    </th>
+                </tr>
+            </table>
+        </header>
+
+
+    	<%= yield %>
+
+    	<div class = "navbar navbar-inverse navbar-fixed-bottom">
+    	    <div class = "container">
+    	        <p class = "navbar-text pull-left">Support Future Cougars!</p>
+
+    	        <form action="https://www.paypal.com/cgi-bin/webscr" class = "navbar-btn pull-right" method="post" target="_top">
+    	        <input type="hidden" name="cmd" value="_donations">
+    	        <input type="hidden" name="business" value="cloviswrestling@gmail.com">
+    	        <input type="hidden" name="lc" value="US">
+    	        <input type="hidden" name="no_note" value="0">
+    	        <input type="hidden" name="currency_code" value="USD">
+    	        <input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
+    	        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    	        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    	        </form>
+    	    </div>
+    	</div>
+
+        <div class = "modal fade" id = "schedule" role = "dialog">
+        <div class = "modal-dialog">
+            <div class = "modal-content">
+                <div class = "modal-header">
+                    <h4>Schedule for Clovis High</h4>
+                </div>
+                <div class = "modal-body">
+                    <p>2014-2015 Schedule TBA</p>
+                </div>
+                <div class = "modal-footer">
+                    <a class = "btn btn-default" data-dismiss = "modal">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    $document.ready(function activePage(){
+        var path = window.location.pathname();
+        var page = path.substr(path.lastIndexOf("/") + 1);
+        alert(page);
+        var tab = document.getElementById(page);
+    })
+</script>
+</html>

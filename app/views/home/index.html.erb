@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-info btn-xs" data-toggle="offcanvas">Twitter</button>
+            </p>
+            <div class = "row">
+
+                <!--Class of 2014-->
+                <div class = "col-sm-12">
+                    <p></p> <!--Img Can't be First-->
+                    <%= image_tag 'ww20141st.jpg', class: 'img-responsive center-block' %>
+                    <h1 class= "text-center"><a href = "https://www.facebook.com/pages/Clovis-Wrestling/89074663241" target= "_blank">Class of 2014: 1st to 4</a></h1>
+                </div>
+
+
+                <div class="col-md-6 col-sm-12">
+                </div>
+
+                <!--Live Stream-->
+                <div class = "col-sm-6">
+                    <h3 class="text-center"><a href = "http://cloviswrestling.com/live.htm">Live Stream</a></h3>
+                    <a href = "http://cloviswrestling.com/live.htm"><%= image_tag 'stream.png', class: 'img-responsive center-block' %></a>
+                </div>
+
+                <!--Sample Article-->
+                <div class = "col-sm-6">
+                    <h3><%= link_to @post.title, blog_path(@post.id) %></a></h3>
+                    <%= image_tag @post.image_id, class: "img-responsive" %>
+                    <p><%= @post.preview %></p>
+                    <%= link_to 'Read More', blog_path(@post.id), class: 'btn btn-default' %>
+                </div>
+                
+            </div><!--/Row in Main Section-->
+        </div><!--/Main Section-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+
+            <!--Twitter-->
+            <div class="list-group">
+                <a class="twitter-timeline img-responsive" href="https://twitter.com/ClovisWrestling" data-widget-id="439316942675931136" data-chrome="nofooter noheader transparent">Tweets by @ClovisWrestling</a>
+                <a href="https://twitter.com/cloviswrestling" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @twitterapi</a>
+            </div>
+
+            <!--Facebook-->
+            <div class="list-group">
+                <a href="https://www.facebook.com/pages/Clovis-Wrestling/89074663241"><%= image_tag 'fblikelogo.gif', class: 'img-responsive' %></a>
+            </div>
+
+        </div> <!--/Sidebar-->
+    </div> <!--/Row Offcanvas Right-->
+
+    <hr>
+
+    <footer>
+        <p>&copy; Company 2014</p>
+    </footer>
+</div><!--/Container-->
+
+
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

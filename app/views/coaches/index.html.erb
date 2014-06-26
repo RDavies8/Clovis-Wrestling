@@ -1,0 +1,24 @@
+<% content_for :title do %>
+	Staff
+<% end %>
+
+<div class = "container">
+    <div class = "jumbotron text-center">
+        <h1>Team Coaches</h1>
+        <p>2013-2014</p>
+    </div>
+</div>
+
+
+<div class = "container">
+    <div class = "rowi text-center" id = "grid">
+		<% @coaches.each do |coach| %>
+	    	<div class = "col-md-3 col-sm-4 col-xs-6 listing-item">
+	    		<%= image_tag coach.user_id+".jpg", class: "img-responsive center-block" %>
+	    		<h4><%= coach.name %></h4>
+	    		<h5><%= coach.position %></h5>
+	    		<%= link_to "Read More", "coaches/"+coach.user_id, class: "btn btn-default" %>
+	    	</div>
+    	<% end %>
+    </div>
+</div>
