@@ -2,12 +2,16 @@
     User - New
 <% end %>
 
+
 <div class='container'>
+
+    <%= render 'shared/form_error', var: @new_user %>
+
     <div class='row'>
-        <div class="col-md-offset-2 col-md-8">
+        <div class="col-md-offset-1 col-md-10 col-lg-8 col-lg-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3>New User</h3>
+                  <h3 class="text-center">New User</h3>
                 </div>
                 <div class="panel-body">
                     <%= form_for @new_user, html: {class: 'form-horizontal'} do |form| %>
@@ -38,7 +42,14 @@
                         <div class="form-group">
                             <%= label_tag :text_val, 'State:', class: 'col-sm-2 control-label' %>
                             <div class="col-sm-10">
-                                <%= form.text_field :state, class: 'form-control' %>
+                                <%= form.select :state, options_for_select(us_states),  {include_blank: 'Select State'}, {class: 'form-control'} %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox col-sm-offset-2 col-sm-10">
+                                <label>
+                                    Receive Updates/Events via Email <%= form.check_box :subscription %>
+                                </label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -52,3 +63,4 @@
         </div>
     </div>
 </div>
+

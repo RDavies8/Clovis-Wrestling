@@ -4,7 +4,7 @@ class CoachesController < ApplicationController
 	end
 
 	def show
-		@coach = Coach.find_by_user_id(params[:id])
+		@coach = Coach.find_by_ref(params[:id])
     temp_coaches = Coach.all
     @coaches = []
     num_coaches = Coach.count
@@ -18,5 +18,6 @@ class CoachesController < ApplicationController
       pos += 1
     end
 
+    @posts = @coach.blogs
 	end
 end

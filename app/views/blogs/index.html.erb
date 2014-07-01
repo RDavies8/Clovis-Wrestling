@@ -15,4 +15,16 @@
         <% end %> 
     </div>
 
+    <div class="text-center">
+        <ul class="pagination">
+          <!--TODO Change Arrows Left and Right to Glyphs -->
+          <!--TODO Make Arrows Unclickable with JQuery -->
+          <li class="<%= first_page? %>"><%= link_to '<<', blogs_path(page: page_down) %></li>
+          <% @num_pages.times do |i|%>
+            <li class="<%= current_page?(i+1) %>"><%= link_to i+1, blogs_path(page: i+1) %></li>
+          <% end %>
+          <li class="<%= last_page? %>"><%= link_to '>>', blogs_path(page: page_up) %></li>
+        </ul>
+    </div>
+
 </div>

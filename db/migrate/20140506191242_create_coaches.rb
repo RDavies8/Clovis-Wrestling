@@ -4,7 +4,7 @@ class CreateCoaches < ActiveRecord::Migration
     	t.string :name
     	t.string :position
     	t.string :info
-    	t.string :user_id
+    	t.string :ref
      	t.timestamps
     end
     

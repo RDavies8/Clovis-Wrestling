@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
 
-  resources :coaches, :blogs, :users
+  post 'users/post_login', as: :post_login_user
+
+  get 'users/login', as: :login_user
+  get 'users/logout', as: :logout_user
+
+  resources :coaches, :blogs, :users, :comments
 
 
 

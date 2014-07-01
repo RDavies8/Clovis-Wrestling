@@ -1,6 +1,8 @@
 class Coach < ActiveRecord::Base
+  has_many :blogs
+  belongs_to :user
   def image_id
-    "#{user_id}.jpg"
+    "#{ref}.jpg"
   end
 
 end

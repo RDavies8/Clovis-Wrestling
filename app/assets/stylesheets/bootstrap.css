@@ -2215,9 +2215,10 @@ textarea.input-lg {
   min-height: 27px;
 }
 
+/* --------- Edited ----------- */
 .form-horizontal .form-group {
-  margin-right: -15px;
-  margin-left: -15px;
+  /*margin-right: -15px;*/
+  /*margin-left: -15px;*/
 }
 
 .form-horizontal .form-group:before,
@@ -4500,7 +4501,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   line-height: 20px;
 }
 .navbar-brand .title {
-    float: left
+    float: left;
     padding: 30px;
     font-size: 50px;
     line-height: 20px;

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624200909) do
+ActiveRecord::Schema.define(version: 20140630042147) do
 
   create_table "blogs", force: true do |t|
     t.string   "title"
     t.string   "author"
-    t.string   "caption"
     t.string   "article"
     t.string   "image_id"
+    t.integer  "coach_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,7 +27,18 @@ ActiveRecord::Schema.define(version: 20140624200909) do
     t.string   "name"
     t.string   "position"
     t.string   "info"
-    t.string   "user_id"
+    t.string   "ref"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "coaches", ["user_id"], name: "index_coaches_on_user_id"
+
+  create_table "comments", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "blog_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,6 +49,8 @@ ActiveRecord::Schema.define(version: 20140624200909) do
     t.string   "last_name"
     t.string   "city"
     t.string   "state"
+    t.string   "type"
+    t.boolean  "subscription"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

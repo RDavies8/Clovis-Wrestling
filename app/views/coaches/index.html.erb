@@ -11,13 +11,13 @@
 
 
 <div class = "container">
-    <div class = "rowi text-center" id = "grid">
+    <div class = "row text-center" id = "grid">
 		<% @coaches.each do |coach| %>
 	    	<div class = "col-md-3 col-sm-4 col-xs-6 listing-item">
-	    		<%= image_tag coach.user_id+".jpg", class: "img-responsive center-block" %>
+	    		<%= image_tag coach.image_id, class: 'img-responsive center-block' %>
 	    		<h4><%= coach.name %></h4>
 	    		<h5><%= coach.position %></h5>
-	    		<%= link_to "Read More", "coaches/"+coach.user_id, class: "btn btn-default" %>
+	    		<%= link_to "Read More", "coaches/"+coach.ref, class: 'btn btn-default' %>
 	    	</div>
     	<% end %>
     </div>

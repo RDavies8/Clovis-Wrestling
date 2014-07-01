@@ -33,7 +33,32 @@
         </div>
 
         <%= render 'shared/related_sidebar', items: @coaches, title: 'name', subtitle: 'position',
-                                             controller_path: 'coach', path: 'user_id' %>
+                                             controller_path: 'coach', path: 'ref' %>
 
     </div>
+
+    <% if @posts.any? %>
+        <div class="row">
+            <div class="col-xs-12 col-sm-9">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="text-center">Posts by <%= @coach.name %></h3>
+                    </div>
+                    <div class="panel-body">
+                        <% @posts.each do |post| %>
+                            <%= link_to blog_path(post.id) do %>
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <%= image_tag post.image_id, class: 'thumbnail sm col-xs-4' %>
+                                        <div class="text-center col-xs-4"><%= post.title %></div>
+                                        <div class="text-center col-xs-4"><%= post.created_at.strftime('%b %d') %> </div>
+                                    </div>
+                                </div>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
 </div>
