@@ -14,10 +14,11 @@
                                 	<%= @blog.title %>
                                 	<small><%= @blog.author %></small>
                                 </h3>
+
                             </div>
 
                             <!--Check featuredImg/articleImg-->
-                            <%= image_tag @blog.image_id, class: "img-article img-responsive img-blog" %>
+                            <%= image_tag @blog.image_id, class: 'img-article img-responsive img-blog' %>
 
                             <p id = "main-text">
                             	<%= @blog.article %>
@@ -25,6 +26,10 @@
                         </div>
                         <% if current_user %>
                             <div class="panel-footer">
+                                <% if is_admin? %>
+                                    <%= link_to 'Edit', edit_blog_path(@blog.id), class: 'btn btn-danger btn-lg center-block' %>
+                                    <br />
+                                <% end %>
                                 <%= form_for @comment, html: {class: 'form-horizontal'} do |form| %>
                                     <div class='form-group'>
                                       <%= label_tag :text_val, 'Comment:', class: 'col-sm-2 control-label' %>
@@ -60,13 +65,19 @@
                         <% @comments.each do |comment| %>
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <div class="text-center col-sm-3 col-xs-2"><%= comment.user.full_name %></div>
-                                    <div class="col-lg-8 col-sm-7 col-xs-8"><%= comment.content %></div>
-                                    <% if current_user == comment.user %>
-                                        <%= button_to 'Remove', {controller: 'comments', action: 'destroy', id: comment.id}, method: :delete, class: 'btn btn-danger btn-sm btn-responsive center-block col-lg-1 col-xs-2', data: {confirm: 'Are you sure you want to remove this Comment?'} %>
-                                    <% else %>
-                                        <div class="text-center col-lg-1 col-xs-2"><%= comment.created_at.strftime('%b %d') %> </div>
-                                    <% end %>
+                                    <div class="row">
+                                      <% if current_user == comment.user or is_admin? %>
+                                          <div class="col-xs-7"><h5><%= comment.user.full_name %></h5></div>
+                                          <div class="text-center col-xs-2"><%= comment.created_at.strftime('%b %d') %> </div>
+                                          <%= button_to 'Remove', {controller: 'comments', action: 'destroy', id: comment.id}, method: :delete, class: 'btn btn-danger btn-sm btn-responsive center-block col-xs-offset-4 col-xs-2', data: {confirm: 'Are you sure you want to remove this Comment?'} %>
+                                      <% else %>
+                                          <div class="col-xs-9"><h5><%= comment.user.full_name %></h5></div>
+                                          <div class="text-center col-xs-2"><%= comment.created_at.strftime('%b %d') %> </div>
+                                      <% end %>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-xs-12"><%= comment.content %></div>
+                                    </div>
                                 </div>
                             </div>
                         <% end %>

@@ -17,6 +17,7 @@ class BlogsController < ApplicationController
 	end
 
 	def new
+    return redirect_to blogs_path if !session[:user_id] or !User.find(session[:user_id]).admin
 		@blog = Blog.new
 	end
 
@@ -50,11 +51,13 @@ class BlogsController < ApplicationController
       flash[:notice] = 'Successfully Posted'
       redirect_to blog_path @blog.id
     else
-      render :new
+      render :edit
     end
   end
 
   def edit
+    return redirect_to blog_path(params[:id]) if !session[:user_id] or !User.find(session[:user_id]).admin
+
     @blog = Blog.find(params[:id])
     if !@blog
       return redirect_to blogs_path
@@ -65,13 +68,50 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     return redirect_to new_blog_path if !@blog
 
-    if user.update_attributes blog_params(params[:blog])
+    if params[:blog][:author].blank?
+      params[:blog][:author] = 'Clovis Wrestling'
+    else
+      @blog.coach = Coach.find(params[:blog][:author])
+      params[:blog][:author] = @blog.coach.name
+    end
+
+    if params[:blog][:image]
+      image_filename = params[:blog][:image].original_filename
+      path = Rails.root.join('app', 'assets', 'images', image_filename)
+      File.open(path, 'wb') do |f|
+        f.write(params[:blog][:image].read)
+      end
+      @blog.image_id = image_filename
+    end
+
+    if @blog.update_attributes blog_params(params[:blog])
       flash[:notice_title] =  @blog.title
       flash[:notice] = 'Blog Successfully Updated'
       redirect_to edit_blog_path @blog.id
     else
-      flash[:error] = ''
+      render :edit
     end
+  end
+
+  def destroy
+    blog = Blog.find(params[:id])
+    if blog.destroy
+      flash[:notice] = 'Blog Deleted'
+      redirect_to blogs_path
+    else
+      flash[:error] = 'Blog could not be deleted'
+      redirect_to edit_blog_path(blog.id)
+    end
+
+  end
+
+  def change_image
+    @blog = Blog.find(params[:blog_id])
+  end
+
+  def search
+    @results = Blog.filter params[:substring]
+    render :json => @results
   end
 
   def blog_params(params)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630042147) do
+ActiveRecord::Schema.define(version: 20140718213514) do
 
   create_table "blogs", force: true do |t|
     t.string   "title"
@@ -49,10 +49,13 @@ ActiveRecord::Schema.define(version: 20140630042147) do
     t.string   "last_name"
     t.string   "city"
     t.string   "state"
-    t.string   "type"
+    t.boolean  "admin"
     t.boolean  "subscription"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
+    t.string   "password_hash"
+    t.string   "password_salt"
   end
 
   create_table "wrestlers", force: true do |t|

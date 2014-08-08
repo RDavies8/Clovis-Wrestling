@@ -1,62 +1,99 @@
 <div class="container">
-    <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
-            <p class="pull-right visible-xs">
-                <button type="button" class="btn btn-info btn-xs" data-toggle="offcanvas">Twitter</button>
-            </p>
+        <!--<div class="row row-offcanvas row-offcanvas-right">-->
+        <!--<div class="col-xs-12 col-sm-9">-->
+            <!--<p class="pull-right visible-xs">-->
+                <!--<button type="button" class="btn btn-info btn-xs" data-toggle="offcanvas">Twitter</button>-->
+            <!--</p>-->
             <div class = "row">
 
                 <!--Class of 2014-->
-                <div class = "col-sm-12">
-                    <p></p> <!--Img Can't be First-->
+                <div class = "col-xs-offset-1 col-xs-10">
+                    <div id="twitcker-div"></div>
                     <%= image_tag 'ww20141st.jpg', class: 'img-responsive center-block' %>
                     <h1 class= "text-center"><a href = "https://www.facebook.com/pages/Clovis-Wrestling/89074663241" target= "_blank">Class of 2014: 1st to 4</a></h1>
                 </div>
 
-
-                <div class="col-md-6 col-sm-12">
+              <div class="col-xs-12" >
+                <div class="carousel-wrapper">
+                  <div id="homeCarousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li class="active" data-target="#homeCarousel" data-slide-to="0"></li>
+                      <li data-target="#homeCarousel" data-slide-to="1"></li>
+                      <li data-target="#homeCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                          <a href = "http://cloviswrestling.com/live.htm"><%= image_tag 'stream.png', class: 'img-responsive center-block' %></a>
+                          <div class="carousel-caption">
+                                <h3 class="text-center"><a href = "http://cloviswrestling.com/live.htm">Live Stream</a></h3>
+                          </div>
+                      </div>
+                      <div class="item">
+                          <a href = "http://cloviswrestling.com/live.htm"><%= image_tag 'stream.png', class: 'img-responsive center-block' %></a>
+                          <h3 class="text-center"><a href = "http://cloviswrestling.com/live.htm">Live Stream</a></h3>
+                      </div>
+                      <div class="item">
+                          <div class="col-sm-offset-1 col-sm-5 col-xs-offset-1 col-xs-10">
+                            <%= link_to blog_path(@post.id) do %>
+                                <%= image_tag @post.image_id, class: 'img-responsive center-block vertical-align' %>
+                            <% end %>
+                            <h3 class="text-center visible-xs col-xs-12"><%= link_to @post.title, blog_path(@post.id) %></h3>
+                          </div>
+                          <div class="col-sm-4 hidden-xs">
+                              <h3><%= link_to @post.title, blog_path(@post.id) %></a></h3>
+                              <p><%= @post.preview %></p>
+                              <%= link_to 'Read More', blog_path(@post.id), class: 'btn btn-default' %>
+                          </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#homeCarousel" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicons-chevron-left"><</span>
+                    </a>
+                    <a class="right carousel-control" href="#homeCarousel" role="button" data-slide="next">
+                      <span class="glyphicon glyphicons-chevron-right">></span>
+                    </a>
+                  </div>
                 </div>
+              </div>
 
                 <!--Live Stream-->
-                <div class = "col-sm-6">
-                    <h3 class="text-center"><a href = "http://cloviswrestling.com/live.htm">Live Stream</a></h3>
-                    <a href = "http://cloviswrestling.com/live.htm"><%= image_tag 'stream.png', class: 'img-responsive center-block' %></a>
-                </div>
+                <!--<div class = "col-sm-6">-->
+                    <!--<h3 class="text-center"><a href = "http://cloviswrestling.com/live.htm">Live Stream</a></h3>-->
+                    <!--<a href = "http://cloviswrestling.com/live.htm"><%= image_tag 'stream.png', class: 'img-responsive center-block' %></a>-->
+                <!--</div>-->
 
                 <!--Sample Article-->
-                <div class = "col-sm-6">
-                    <h3><%= link_to @post.title, blog_path(@post.id) %></a></h3>
-                    <%= image_tag @post.image_id, class: "img-responsive" %>
-                    <p><%= @post.preview %></p>
-                    <%= link_to 'Read More', blog_path(@post.id), class: 'btn btn-default' %>
-                </div>
+                <!--<div class = "col-sm-6">-->
+                    <!--<h3><%= link_to @post.title, blog_path(@post.id) %></a></h3>-->
+                    <!--<%= image_tag @post.image_id, class: "img-responsive" %>-->
+                    <!--<p><%= @post.preview %></p>-->
+                    <!--<%= link_to 'Read More', blog_path(@post.id), class: 'btn btn-default' %>-->
+                <!--</div>-->
                 
             </div><!--/Row in Main Section-->
-        </div><!--/Main Section-->
+        <!--</div>&lt;!&ndash;/Main Section&ndash;&gt;-->
 
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+        <!--<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">-->
 
-            <!--Twitter-->
-            <div class="list-group">
-                <a class="twitter-timeline img-responsive" href="https://twitter.com/ClovisWrestling" data-widget-id="439316942675931136" data-chrome="nofooter noheader transparent">Tweets by @ClovisWrestling</a>
-                <a href="https://twitter.com/cloviswrestling" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @twitterapi</a>
-            </div>
+            <!--&lt;!&ndash;Twitter&ndash;&gt;-->
+            <!--<div class="list-group">-->
+                <!--<a class="twitter-timeline img-responsive" href="https://twitter.com/ClovisWrestling" data-widget-id="439316942675931136" data-chrome="nofooter noheader transparent">Tweets by @ClovisWrestling</a>-->
+                <!--<a href="https://twitter.com/cloviswrestling" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @twitterapi</a>-->
+            <!--</div>-->
 
-            <!--Facebook-->
-            <div class="list-group">
-                <a href="https://www.facebook.com/pages/Clovis-Wrestling/89074663241"><%= image_tag 'fblikelogo.gif', class: 'img-responsive' %></a>
-            </div>
+            <!--&lt;!&ndash;Facebook&ndash;&gt;-->
+            <!--<div class="list-group">-->
+                <!--<a href="https://www.facebook.com/pages/Clovis-Wrestling/89074663241"><%= image_tag 'fblikelogo.gif', class: 'img-responsive' %></a>-->
+            <!--</div>-->
 
-        </div> <!--/Sidebar-->
-    </div> <!--/Row Offcanvas Right-->
+        <!--</div> &lt;!&ndash;/Sidebar&ndash;&gt;-->
+    <!--</div> &lt;!&ndash;/Row Offcanvas Right&ndash;&gt;-->
 
-    <hr>
 
     <footer>
+        <!-- TODO Fix this Copyright Image -->
         <p>&copy; Company 2014</p>
     </footer>
 </div><!--/Container-->
-
-
-
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script type="text/javascript">(function(){var ticker=document.createElement('script');ticker.type='text/javascript';ticker.async=true;ticker.src='//twitcker.com/ticker/Ryan8Davies.js?speed=7&count=23&open=true&container=own-container&own-container=twitcker-div';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(ticker);})();</script>
+    <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->

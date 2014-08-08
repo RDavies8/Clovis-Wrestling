@@ -7,7 +7,9 @@ module BlogsHelper
   end
 
   def current_page? id
-    if params[:page].to_i == id
+    page = params[:page]
+    page = 1 if !page
+    if page.to_i == id
       return 'active'
     end
     return ''

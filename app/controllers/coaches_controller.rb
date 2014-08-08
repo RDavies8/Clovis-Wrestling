@@ -18,6 +18,6 @@ class CoachesController < ApplicationController
       pos += 1
     end
 
-    @posts = @coach.blogs
+    @posts = @coach.blogs.last(5)
 	end
 end

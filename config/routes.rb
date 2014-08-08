@@ -13,7 +13,13 @@ Rails.application.routes.draw do
   get 'users/login', as: :login_user
   get 'users/logout', as: :logout_user
 
-  resources :coaches, :blogs, :users, :comments
+  get 'blogs/search'
+
+  resources :coaches, :users, :comments
+
+  resources :blogs do
+    get 'change_image', as: :change_image
+  end
 
 
 

@@ -59,7 +59,6 @@ class UsersController < ApplicationController
   end
 
   def post_login
-
     if params[:email].blank?
       return redirect_to login_user_path
     end
@@ -76,6 +75,7 @@ class UsersController < ApplicationController
   end
 
   def login
+    redirect_to home_index_path if session[:user_id]
   end
 
   def logout
@@ -85,6 +85,6 @@ class UsersController < ApplicationController
   end
 
   def user_params(params)
-    return params.permit :email, :first_name, :last_name, :city, :state, :subscription
+    return params.permit :email, :first_name, :last_name, :city, :state, :subscription, :username, :password, :password_confirmation
   end
 end
