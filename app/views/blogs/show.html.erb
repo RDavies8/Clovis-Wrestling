@@ -2,6 +2,7 @@
     <%= @blog.title %>
 <% end %>
 
+
 <div class = "container">
     <div class = "row">
         <div class = "col-xs-12 col-sm-9">
@@ -18,7 +19,9 @@
                             </div>
 
                             <!--Check featuredImg/articleImg-->
-                            <%= image_tag @blog.image_id, class: 'img-article img-responsive img-blog' %>
+                            <a href = "#test" data-toggle="modal">
+                                <%= image_tag @blog.image_id, id: 'article-image', class: 'img-article img-responsive img-blog', onmouseover: 'enlarge("article-image")' %>
+                            </a>
 
                             <p id = "main-text">
                             	<%= @blog.article %>
@@ -86,4 +89,25 @@
             </div>
         </div>
     <% end %>
+
+
+
+
+
+      <div class = "modal fade" id = "test" role = "dialog">
+        <div class = "modal-dialog">
+          <div class = "modal-content">
+            <div class = "modal-header">
+              <h4 class="text-center"><%= @blog.title %> <small><%= @blog.author %></small></h4>
+            </div>
+            <div class = "modal-body">
+                <%= image_tag @blog.image_id, id: 'enlarged-display' %>
+            </div>
+            <div class = "modal-footer">
+              <a class = "btn btn-default" data-dismiss = "modal">Close</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
 </div>

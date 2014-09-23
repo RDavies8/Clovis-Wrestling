@@ -23,7 +23,7 @@ function searchBlogs(id, result){
 
 			var link = document.createElement('A');
 			link.href = '/blogs/' + data[i].id;
-            link.className = 'col-md-2 col-sm-3 col-xs-6 blog-item list-group-item';
+            link.className = 'col-md-2 col-sm-3 col-xs-6 blog-search-item list-group-item';
 
             var title = document.createElement('H5');
             title.className = 'text-center';

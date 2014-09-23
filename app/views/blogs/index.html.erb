@@ -22,8 +22,9 @@
                 <!--<span class="input-group-addon">-->
                   <!--<span class="glyphicon glyphicon-search" />-->
                 <!--</span>-->
+                <!-- TODO Limit Search Results -->
         </div>
-        <!-- TODO Fix Min Height on Search Results -->
+        <!-- TODO Center Search Vertically -->
         <div id="results" class="list-group-item" style="padding-top: 0; padding-bottom: 0"></div>
         <% @blogs.each do |blog| %>
             <%= link_to blog_path(blog.id), class: 'list-group-item blog-item' do %>
