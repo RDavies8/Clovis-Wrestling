@@ -3,7 +3,7 @@ class CreateCoaches < ActiveRecord::Migration
     create_table :coaches do |t|
     	t.string :name
     	t.string :position
-    	t.string :info
+    	t.text :info, limit: nil
     	t.string :ref
      	t.timestamps
     end

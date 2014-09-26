@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="961661104">
+  <component name="DataSourceManagerImpl" format="xml" hash="329309397">
     <data-source source="LOCAL" name="Rails Clovis Wrestling: development" uuid="31c55b09-4841-4dd6-8902-fa7690c6c7aa">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:clovis_development</jdbc-url>
+      <user-name>Ryan</user-name>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails Clovis Wrestling: test" uuid="4c420127-9528-46da-ae49-616f09154536">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:clovis_test</jdbc-url>
+      <user-name>Ryan</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails Clovis Wrestling: production" uuid="f442b7a8-f68e-4082-be7f-afb5429f812f">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:clovis_production</jdbc-url>
+      <user-name>Ryan</user-name>
       <libraries />
     </data-source>
   </component>

@@ -13,10 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20140718213514) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "blogs", force: true do |t|
     t.string   "title"
     t.string   "author"
-    t.string   "article"
+    t.text     "article"
     t.string   "image_id"
     t.integer  "coach_id"
     t.datetime "created_at"
@@ -26,17 +29,17 @@ ActiveRecord::Schema.define(version: 20140718213514) do
   create_table "coaches", force: true do |t|
     t.string   "name"
     t.string   "position"
-    t.string   "info"
+    t.text     "info"
     t.string   "ref"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
-  add_index "coaches", ["user_id"], name: "index_coaches_on_user_id"
+  add_index "coaches", ["user_id"], name: "index_coaches_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "user_id"
     t.integer  "blog_id"
     t.datetime "created_at"

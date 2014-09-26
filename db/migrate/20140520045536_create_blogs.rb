@@ -3,7 +3,7 @@ class CreateBlogs < ActiveRecord::Migration
     create_table :blogs do |t|
     	t.string		:title
     	t.string		:author
-    	t.string		:article
+    	t.text		:article, limit: nil
     	t.string		:image_id
 
       t.belongs_to :coach

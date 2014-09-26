@@ -2,9 +2,15 @@ class BlogsController < ApplicationController
 	def index
     per_page = 5
     @page = params[:page].to_i
-    @page = 1 if !@page
-    @num_pages = (Blog.count+1) / per_page
-		@blogs = Blog.offset((@page-1) * per_page).last(per_page).reverse
+    @page = 1 if @page == 0
+    num_blogs = Blog.count
+    @num_pages = (num_blogs / per_page)
+    @num_pages += 1 if @num_pages != 0
+		if num_blogs > per_page then
+      @blogs = Blog.offset((@page-1) * per_page).last(per_page).reverse
+    else
+      @blogs = Blog.all.reverse
+    end
 	end
 
 
@@ -17,7 +23,7 @@ class BlogsController < ApplicationController
 	end
 
 	def new
-    return redirect_to blogs_path if !session[:user_id] or !User.find(session[:user_id]).admin
+    # return redirect_to blogs_path if !session[:user_id] or !User.find(session[:user_id]).admin
 		@blog = Blog.new
 	end
 

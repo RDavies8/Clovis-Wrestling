@@ -6,4 +6,7 @@
   <data-source source="LOCAL" name="Rails Clovis Wrestling: test" uuid="4c420127-9528-46da-ae49-616f09154536">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails Clovis Wrestling: production" uuid="f442b7a8-f68e-4082-be7f-afb5429f812f">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
