@@ -31,7 +31,7 @@ development:
   encoding: unicode
   database: clovis_development
   pool: 5
-  username: Ryan
+  username:
   password:
 
 test:
@@ -39,7 +39,7 @@ test:
   encoding: unicode
   database: clovis_test
   pool: 5
-  username: Ryan
+  username:
   password:
 
 production:
@@ -47,5 +47,5 @@ production:
   encoding: unicode
   database: clovis_production
   pool: 5
-  username: Ryan
+  username:
   password:

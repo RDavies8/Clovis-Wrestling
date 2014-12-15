@@ -35,7 +35,12 @@ module BlogsHelper
   end
 
   def page_up
-    page = params[:page].to_i + 1
+    page = params[:page].to_i
+    if page == 0
+      page += 2
+    else
+      page += 1
+    end
     page = @num_pages if page > @num_pages
     return page
   end
