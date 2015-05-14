@@ -1,5 +1,7 @@
 module ApplicationHelper
-	def is_active (name) 
+  require 'tweets'
+
+	def is_active (name)
 		if  params[:controller] == name 
 			return 'active'
 		end
@@ -14,4 +16,5 @@ module ApplicationHelper
     return current_user.admin if current_user
     return false
   end
+
 end

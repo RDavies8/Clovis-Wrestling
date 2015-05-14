@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'blogs/search'
 
+  get 'stream', to: 'stream#index'
+
   resources :coaches, :users, :comments
 
   resources :blogs do
